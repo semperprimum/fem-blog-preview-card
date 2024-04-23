@@ -1,0 +1,110 @@
+@import "./reset.css";
+@import "./sr-only.css";
+
+@font-face {
+    font-family : "Figtree";
+    src         : url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("woff2-variations"),
+        url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("woff2 supports variations");
+    font-weight : 100 900;
+}
+
+$clr-accent       : #F4D04E;
+$clr-neutral-100  : #FFFFFF;
+$clr-neutral-200  : #7F7F7F;
+$clr-neutral-300  : #111111;
+
+$fw-regular  : 500;
+$fw-bold     : 800;
+
+body {
+    display          : grid;
+    place-content    : center;
+    color            : $clr-neutral-300;
+    background-color : $clr-accent;
+
+    font-family : "Figtree", system-ui, sans-serif;
+    font-weight : $fw-regular;
+}
+
+.card {
+    $spacer : .75rem;
+
+    background-color : $clr-neutral-100;
+    max-width        : 24rem;
+    padding          : 1.5rem;
+    border-radius    : 1.25rem;
+
+    outline        : 1px solid $clr-neutral-300;
+    outline-offset : -1px;
+
+    box-shadow : .5rem .5rem 0 0 $clr-neutral-300;
+
+    &__image {
+        width         : 100%;
+        border-radius : .625rem;
+        margin-bottom : 1.5rem;
+    }
+
+    &__category {
+        display          : block;
+        background-color : $clr-accent;
+        max-width        : fit-content;
+        padding          : .25rem .75rem;
+        border-radius    : .25rem;
+        font-weight      : $fw-bold;
+        font-size        : .875rem;
+
+        margin-bottom : $spacer;
+    }
+
+    &__publish-date {
+        display   : block;
+        font-size : .875rem;
+
+        margin-bottom : $spacer;
+    }
+
+    &__title {
+        font-size   : 1.5rem;
+        font-weight : $fw-bold;
+
+        margin-bottom : $spacer;
+    }
+
+    &__description {
+        color : $clr-neutral-200;
+    }
+
+    &__author {
+        display     : flex;
+        align-items : center;
+        gap         : $spacer;
+        margin-top  : 1.5rem;
+
+        &-picture {
+            max-width : 2rem;
+        }
+
+        &-name {
+            font-weight : $fw-bold;
+        }
+    }
+
+    @media only screen and (min-width: 48em) {
+        transition : box-shadow 150ms ease, transform 150ms ease;
+
+        &__title {
+            transition : color 100ms ease;
+
+            &:hover {
+                color : $clr-accent;
+
+            }
+        }
+
+        &:hover {
+            box-shadow : 1rem 1rem 0 0 $clr-neutral-300;
+            transform  : translate(-.5rem, -.5rem);
+        }
+    }
+}
